@@ -18,12 +18,26 @@ public enum GeoJSON: Hashable {
         public let properties: CodableJSON.JSON?
         /// The identifier of the feature. May be either a string or integer.
         public let id: GeoJSONFeatureIdentifier?
+        
+        public init(
+            geometry: Geometry? = nil,
+            properties: CodableJSON.JSON? = nil,
+            id: GeoJSONFeatureIdentifier? = nil
+        ) {
+            self.geometry = geometry
+            self.properties = properties
+            self.id = id
+        }
     }
 
     /// A list of `Feature` objects.
     public struct FeatureCollection: Hashable {
         /// The features of the collection.
         public let features: [Feature]
+        
+        public init(features: [Feature]) {
+            self.features = features
+        }
     }
 
     /// A region of space.
